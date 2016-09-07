@@ -1,24 +1,47 @@
-<meta charset="UTF-8">
+﻿<meta charset="UTF-8">
 <html>
 <head>
-  <script src="webrtc.js"></script>
+     <script src="webrtc.js"></script>
+    <!-- params for work-->
+    <script src="params.js"> </script>
+    <!-- main scripts for work-->
+    <script src="main.js"> </script>
+	<!-- external dependencies-->
+    <script src="adapter.js"></script>   
 </head>
 
-<body>
-<video id="localVideo" autoplay muted style="width:640px;"></video>
-
-<br /><br />
-
-<input type="button" id="start" onclick="start(true)" value="Start Video"></input>
-
-<script type="text/javascript">
-  pageReady();
-</script>
-
-<div>
-  <span id="sdpDataTag">
-  </span>
-</div>
-
+<body onload="e_onload()">
+    <table width="100%">
+        <tr>
+            <td>
+                <input type="button" id="start" onclick="start(true)" value="Publish"></input>
+                <input type="button" id="stop" onclick="stop()" value="Stop"></input>
+				</td>
+            <td align="center">
+                Status: <span id="sdpDataTag"></span>
+            </td>
+            <td align="right">
+                Quality:
+                <select id="id_resolution" onchange="changeVideo()"></select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=3>
+                <div class="select">
+                    <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+                </div>
+                <div class="select">
+                    <label for="videoSource">Video source: </label><select id="videoSource"></select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=3>
+                <center>
+                    <video id="localVideo" autoplay muted style="width:640px;"></video>
+                </center>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
