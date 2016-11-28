@@ -9,6 +9,5 @@ var l_maxHeight = 480;
 //Present for srteam qualitys
 var a_Qualitys = [
 		 //"name,wxh", default -- first
-		 "Low,160x120",
-		 "Middle,320x240"
+		 "Low,160x120"
 ];
