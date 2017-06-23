@@ -15,6 +15,7 @@ web:
       # HTML
       - \.html?$
       - \.js$
+      - \.css$
 
 
 # The size of the persistent disk of the application (in MB).
