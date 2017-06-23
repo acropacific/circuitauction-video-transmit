@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Webrtc Stress test page</title>
+       	<script src="scripts/jquery-3.1.0.min.js"></script>
+		<script language="JavaScript">
+		 function create()
+		 {
+		  vurl = $("#murl").val();
+		  vcount = $("#mcount").val();
+		  
+		  vhtml = "<table height='100%' width='100%'><tr>";
+		  for (i=0; i<vcount; i++)
+		  {
+ 		   vhtml += "<td><iframe src='"+vurl+"' height=240px width=320px ></iframe></td>";
+		   if ((i>0) && (i%3 == 0))
+		    vhtml += "</tr><tr>";
+		  }
+		  vhtml +="</tr></table>";
+		 
+		  $("#testdiv").html(vhtml);
+		 }
+		</script>
+    </head>
+    <body style="margin:0;padding:0">
+		URL: <input id='murl' width="100%">
+		Frames count: <input id='mcount' width="100%">
+		<button onclick="create()">Run Test</button>
+		<div id="testdiv"></div>
+		
+	</body>
+</html> 

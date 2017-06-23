@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="scripts/jquery-3.1.0.min.js"></script>
+		<script src="scripts/jquery.cookie.js"></script>
+		<script src="scripts/adapter.js"></script>
+		<script src="params.js"></script>
+        <script src="scripts/webrtc_publish.js"></script>
+    	<script src="scripts/webrtc_statistic.js"></script>
+		<style>
+
+		video {
+		  object-fit: cover;
+		  width: 100%; 
+		  height: 100%;
+		}
+
+		</style>
+	</head>
+    <body onload="pageReady();">
+	    <table border=0>
+		<tr>
+		  <td>
+		   <input type="button" class="submit" onclick="stopPublisher()"  value="Stop"/>
+		  </td>
+		  <td>
+		    <input type="button" class="submit" onclick="startPublisher()"  value="Start"/>
+		  </td>
+		  <td>
+		  Video quality:
+		  </td>
+		  <td>
+				<select id="videoQuality" onchange='changeQuality(this.options[this.selectedIndex].value)'>
+					<option value='low'>Low (min. 160x120, 100 kbps)</option>
+					<option value='mid' selected>Medium (min. 320x240, 200 kbps)</option>
+					<option value='high'>High (min. 640x480, 400 kbps)</option>
+					<option value='max'>Max (min. 1280x720, 800 kbps)</option>
+				</select>
+		  </td>
+		 </tr>
+		</table>
+	    <video id="localVideo" autoplay muted class="webrtcVideo"></video>
+		<div id="serviceInfo">
+			<form class="form_elem">
+				<input type="hidden" id="userAgent" name="userAgent" value="" />
+        	    <label for="videoSource">
+					Video source:
+				</label>
+				<select id="videoSource" onchange="closeAllConnection(); currentIndex = this.selectedIndex; getVideo();"></select>
+        	    <label for="audio`Source">
+					Audio source:
+				</label>
+				<select id="audioSource" onchange="closeAllConnection(); currentAudioIndex = this.selectedIndex; getVideo();"></select>
+				
+				
+				<script type="text/javascript">
+					document.getElementById("userAgent").value = navigator.userAgent;
+				</script>
+			</form>
+			<div id="idhw"></div>
+			<div id="idinfo"></div>
+			<div id="idstatistic"></div>
+		</div>
+
+		<div id="debugfloater">
+		  <form method='get' class="form_elem">
+			<table>
+				<tr>
+					<td>Stream Name</td>
+					<td class="form_elem"><input type='text' name='streamname'></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="form_elem"><input type='submit' value='OK'></td>
+				</tr>
+			</table>
+		</form>
+
+11    </body>
+</html>
