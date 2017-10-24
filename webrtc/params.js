@@ -1,4 +1,4 @@
-var ConnectionServer = "wss://58c9da5f0c888.streamlock.net/webrtc-session.json";
+var ConnectionServer = "wss://578729ceed349.streamlock.net/webrtc-session.json";
 
 // Interval for reconnection request in ms
 var defaultReconectionTimeoutMS = 1500;
